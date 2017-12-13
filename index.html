@@ -10,15 +10,13 @@
     <meta name="author" content="zhuly09">
     
     
-    <meta name="description">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="zhuly09's blog">
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="zhuly09&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="zhuly09's blog">
-<meta property="og:description">
+<meta property="og:site_name" content="zhuly09&#39;s blog">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhuly09's blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="zhuly09&#39;s blog">
     
     
     
@@ -28,7 +26,7 @@
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
     <!--STYLES END-->
     
 </head>
@@ -52,7 +50,7 @@
     
         
             <a  class="header-right-picture "
-                href="/#about">
+                href="#about">
         
         
             <img class="header-picture" src="/assets/images/profile.png"/>
@@ -131,7 +129,7 @@
             <li class="sidebar-button">
                 
                     <a  class="sidebar-button-link st-search-show-outputs"
-                         href="/#search"
+                         href="#search"
                         
                     >
                 
@@ -143,7 +141,7 @@
             <li class="sidebar-button">
                 
                     <a  class="sidebar-button-link "
-                         href="/#about"
+                         href="#about"
                         
                     >
                 
@@ -209,6 +207,62 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
+                                <a class="link-unstyled" href="/2017/12/12/git笔记/">git笔记</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Tue Dec 12 2017 23:14:11 GMT+0800">
+	
+		    Dec 12, 2017
+    	
+    </time>
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <h2 id="git撤销修改"><a href="#git撤销修改" class="headerlink" title="git撤销修改"></a>git撤销修改</h2><p>git revert / git checkout / git reset / git clean</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="params">&lt;commit&gt;</span> <span class="meta">#所有文件回到某个历史版本</span></span><br><span class="line">git checkout <span class="params">&lt;commit&gt;</span> <span class="params">&lt;file&gt;</span> <span class="meta">#单个&lt;file&gt;文件的所有修改都会丢失，前一版本文件覆盖此文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert <span class="tag">&lt;<span class="name">commit</span>&gt;</span> #撤销一个历史提交，具体方法为生成一个和<span class="tag">&lt;<span class="name">commit</span>&gt;</span>提交完全相反操作的新提交</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> &lt;<span class="keyword">commit</span>&gt; #删除&lt;<span class="keyword">commit</span>&gt;之后的所有提交</span><br></pre></td></tr></table></figure>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">git</span> <span class="comment">reset</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">hard</span> &lt;<span class="comment">commit</span>&gt; <span class="comment">#</span><span class="literal">-</span><span class="literal">-</span><span class="comment">hard参数指stage区的修改一并删除</span> <span class="comment">和clean的区别在只影响tracked</span> <span class="comment">files</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> clean <span class="comment">#清除working stage的所有修改</span></span><br></pre></td></tr></table></figure>
+<h2 id="git撤销历史提交"><a href="#git撤销历史提交" class="headerlink" title="git撤销历史提交"></a>git撤销历史提交</h2><p>1、git commit –amend<br><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git </span><span class="string">commit </span><span class="built_in">--amend</span>  <span class="comment">#完全替换最近一次提交</span></span><br><span class="line"><span class="string">git </span><span class="string">commit </span><span class="built_in">--amend</span> -m <span class="string">'NEW MESSAGE'</span> <span class="comment">#可用来只修改上次的提交日志</span></span><br><span class="line"><span class="string">git </span><span class="string">commit </span><span class="built_in">--amend</span> <span class="built_in">--no-edit</span> <span class="comment">#使用上一次提交日志，修改提交文件（可增加，或修改替换文件）</span></span><br></pre></td></tr></table></figure></p>
+<p>注意：amend提交是新的提交覆盖上一次提交，上一次的提交历史不会保留；只限于个人分支修改使用，避免<br>修改对多人合作分支采取此修改</p>
+<p>2、git rebase 变基，可修改历史提交，也可用于合并分支，可用于删除提交历史的某个或者某些连续提交</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git </span><span class="string">rebase </span>-i <span class="comment">#交互式变基，允许变基途中改变单个提交</span></span><br><span class="line"><span class="string">git </span><span class="string">rebase </span><span class="built_in">--continue</span>  <span class="comment">#</span></span><br><span class="line"><span class="string">git </span><span class="string">rebase </span><span class="built_in">--abort</span> <span class="comment">#</span></span><br><span class="line"><span class="string">git </span><span class="string">rebase </span><span class="built_in">--onto</span> <span class="string">BRANCH~</span>N <span class="string">BRANCH~</span>N <span class="string">BRANCH </span><span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>在rebase中，可使用以下命令进行提交历史的修改</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pick 2231360 some old commit</span><br><span class="line">pick ee2adc2 Adds new feature</span><br><span class="line"><span class="meta">#</span><span class="bash"> Rebase 2cf755d..ee2adc2 onto 2cf755d (9 commands)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Commands:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> p, pick = use commit</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> r, reword = use commit, but edit the commit message</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> e, edit = use commit, but stop <span class="keyword">for</span> amending</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> s, squash = use commit, but meld into previous commit</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> f, fixup = like <span class="string">"squash"</span>, but discard this commit<span class="string">'s log message</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> x, <span class="built_in">exec</span> = run <span class="built_in">command</span> (the rest of the line) using shell</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> d, drop = remove commit</span></span><br></pre></td></tr></table></figure>
+<p>使用rebase后会生成新的提交id，与之前分支不同</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git rebase [-i | --interactive] [options] [--exec &lt;cmd&gt;] [--onto &lt;newbase&gt;]</span><br><span class="line">	<span class="meta">[&lt;upstream&gt; [&lt;branch&gt;]</span>]</span><br><span class="line">git rebase [-i | --interactive] [options] [--exec &lt;cmd&gt;] [--onto &lt;newbase&gt;]</span><br><span class="line">	--root <span class="meta">[&lt;branch&gt;]</span></span><br><span class="line">git rebase --continue | --skip | --abort | --quit | --edit-todo</span><br></pre></td></tr></table></figure>
+<p>风险：使用rebase会造成提交历史永久丢失，一些情况下可以通过git reflog找回</p>
+<p>3、git reset 回退</p>
+<p>如前</p>
+
+                        
+                            
+
+                        
+                        
+                            <p>
+                                <a href="/2017/12/12/git笔记/#post-footer" class="postShorten-excerpt_link link">
+                                    Comment and share
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
                                 <a class="link-unstyled" href="/2015/11/12/hexo-theme/">hexo theme</a>
                         
                     </h1>
@@ -224,9 +278,9 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <p>I choose theme Tranquilpeak. it is a gorgeous theme for hexo blog.<br>User documents is <a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme/blob/master/docs/user.md" target="_blank" rel="external">here</a>, download the latest version here, rename the folder in <em>Itranquilpeak</em> and place it in themes folder of your hexo blog path, modify the theme in _config.yml file by change theme variable to tranquilpeak</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">## Themes: http://hexo.io/themes/</span><br><span class="line">theme: tranquilpeak</span><br></pre></td></tr></table></figure>
-<p><img src="https://camo.githubusercontent.com/3f808a7a287f032817226fa99939d761906e1944/687474703a2f2f6431753962697761786a6e6777672e636c6f756466726f6e742e6e65742f73686f7763617365732f73686f77636173652d76312e342e6a7067" alt="cover"><br>refer to <a href="https://hexo.io/themes/" target="_blank" rel="external">hexo themes</a><br><img src="http://res.cloudinary.com/zhuly09/image/upload/v1446726661/logo_bfs9ul.png" alt="logo"></p>
+                        <p>I choose theme Tranquilpeak. it is a gorgeous theme for hexo blog.<br>User documents is <a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme/blob/master/docs/user.md" target="_blank" rel="noopener">here</a>, download the latest version here, rename the folder in <em>Itranquilpeak</em> and place it in themes folder of your hexo blog path, modify the theme in _config.yml file by change theme variable to tranquilpeak</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">## Themes: http://hexo.io/themes/</span><br><span class="line">theme: tranquilpeak</span><br></pre></td></tr></table></figure>
+<p><img src="https://camo.githubusercontent.com/3f808a7a287f032817226fa99939d761906e1944/687474703a2f2f6431753962697761786a6e6777672e636c6f756466726f6e742e6e65742f73686f7763617365732f73686f77636173652d76312e342e6a7067" alt="cover"><br>refer to <a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo themes</a><br><img src="http://res.cloudinary.com/zhuly09/image/upload/v1446726661/logo_bfs9ul.png" alt="logo"></p>
 
                         
                             
@@ -266,11 +320,11 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h2 id="Installing_Hexo_on_Mac">Installing Hexo on Mac</h2><h3 id="1-_prerequirements:">1. prerequirements:</h3><ul>
+                        <h2 id="Installing-Hexo-on-Mac"><a href="#Installing-Hexo-on-Mac" class="headerlink" title="Installing Hexo on Mac"></a>Installing Hexo on Mac</h2><h3 id="1-prerequirements"><a href="#1-prerequirements" class="headerlink" title="1. prerequirements:"></a>1. prerequirements:</h3><ul>
 <li>Node.js</li>
 <li>Git</li>
 </ul>
-<h3 id="2-_install_Node-js">2. install Node.js</h3><p>The best way to install Node.js is installing with brew. </p>
+<h3 id="2-install-Node-js"><a href="#2-install-Node-js" class="headerlink" title="2. install Node.js"></a>2. install Node.js</h3><p>The best way to install Node.js is installing with brew. </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install node</span><br></pre></td></tr></table></figure>
 <p>install hexo</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
@@ -279,10 +333,10 @@
 <p>configure</p>
 <p>Modify _config.yml file which should be in the <folder> created by <em>hex init</em> command.</folder></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: [Blog title]</span><br><span class="line">subtitle:</span><br><span class="line">description:</span><br><span class="line">author: [your name]</span><br><span class="line">language: en</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure>
-<p>refer to <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">hexo configuration</a></p>
+<p>refer to <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="noopener">hexo configuration</a></p>
 <p>start<br>start hexo server by running the following command</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>Starts a local server. By default, this is at <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>Starts a local server. By default, this is at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
 <p><img src="http://res.cloudinary.com/zhuly09/image/upload/v1446726661/logo_bfs9ul.png" alt="logo"></p>
 
                         
@@ -292,6 +346,52 @@
                         
                             <p>
                                 <a href="/2015/11/04/hexo/#post-footer" class="postShorten-excerpt_link link">
+                                    Comment and share
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/11/04/install_python/">mac下的python安装</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Wed Nov 04 2015 01:56:06 GMT+0800">
+	
+		    Nov 04, 2015
+    	
+    </time>
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>python</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> virtualenv</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> virtualenvwrapper</span><br></pre></td></tr></table></figure>
+<p>oh my zsh<br>add following to $HOME/.zshrc</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">WORKON_HOME</span>=<span class="variable">$HOME</span>/.virtualenvs</span><br><span class="line"><span class="comment"># ensure all new environments are isolated from the site-packages directory</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">VIRTUALENVWRAPPER_VIRTUALENV_ARGS</span>=<span class="string">'--no-site-packages'</span></span><br><span class="line"><span class="comment"># use the same directory for virtualenvs as virtualenvwrapper</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PIP_VIRTUALENV_BASE</span>=<span class="variable">$WORKON_HOME</span></span><br><span class="line"><span class="comment"># makes pip detect an active virtualenv and install to it</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PIP_RESPECT_VIRTUALENV</span>=<span class="literal">true</span></span><br><span class="line"><span class="keyword">if</span> [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then</span><br><span class="line">    source /usr/local/bin/virtualenvwrapper.sh</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    echo <span class="string">"WARNING: Can't find virtualenvwrapper.sh"</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>usage:<br>mkvirtualenv</p>
+<p>deactivate</p>
+
+                        
+                            
+
+                        
+                        
+                            <p>
+                                <a href="/2015/11/04/install_python/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -315,7 +415,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2015 zhuly09. All Rights Reserved.
+        Copyrights &copy; 2017 zhuly09. All Rights Reserved.
     </span>
 </footer>
 
@@ -364,7 +464,7 @@
 <div id="cover" style="background-image:url('http://res.cloudinary.com/zhuly09/image/upload/v1446726681/colorful-triangles-background_yB0qTG6_knspvd.jpg');"></div>
     </body>
     <!--SCRIPTS-->
-<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<script src="/assets/js/script.min.js"></script>
 <!--SCRIPTS END-->
 
 

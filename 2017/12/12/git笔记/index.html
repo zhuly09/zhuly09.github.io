@@ -6,17 +6,22 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="zhuly09&#39;s blog">
-    <title>Archives - zhuly09&#39;s blog</title>
+    <title>git笔记 - zhuly09&#39;s blog</title>
     <meta name="author" content="zhuly09">
     
     
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="zhuly09&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+    <meta name="description" content="git撤销修改git revert / git checkout / git reset / git clean 12git checkout &amp;lt;commit&amp;gt; #所有文件回到某个历史版本git checkout &amp;lt;commit&amp;gt; &amp;lt;file&amp;gt; #单个&amp;lt;file&amp;gt;文件的所有修改都会丢失，前一版本文件覆盖此文件 1git revert &amp;lt;comm">
+<meta name="keywords" content="git">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="git笔记">
+<meta property="og:url" content="http://yoursite.com/2017/12/12/git笔记/index.html">
 <meta property="og:site_name" content="zhuly09&#39;s blog">
+<meta property="og:description" content="git撤销修改git revert / git checkout / git reset / git clean 12git checkout &amp;lt;commit&amp;gt; #所有文件回到某个历史版本git checkout &amp;lt;commit&amp;gt; &amp;lt;file&amp;gt; #单个&amp;lt;file&amp;gt;文件的所有修改都会丢失，前一版本文件覆盖此文件 1git revert &amp;lt;comm">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-13T15:04:59.569Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhuly09&#39;s blog">
+<meta name="twitter:title" content="git笔记">
+<meta name="twitter:description" content="git撤销修改git revert / git checkout / git reset / git clean 12git checkout &amp;lt;commit&amp;gt; #所有文件回到某个历史版本git checkout &amp;lt;commit&amp;gt; &amp;lt;file&amp;gt; #单个&amp;lt;file&amp;gt;文件的所有修改都会丢失，前一版本文件覆盖此文件 1git revert &amp;lt;comm">
     
     
     
@@ -42,7 +47,7 @@
         
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">zhuly09&#39;s blog</a>
@@ -66,7 +71,7 @@
         
     
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="4">
     
         <div class="sidebar-profile">
             <a href="/#about">
@@ -193,25 +198,21 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="4"
                  class="
                         hasCoverMetaIn
                         ">
                 
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
-
-<section class="postShorten-group main-content-wrap">
     
-        
-        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2017/12/12/git笔记/">git笔记</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            git笔记
+        </h1>
+    
+    <div class="post-meta">
     <time itemprop="datePublished" content="Tue Dec 12 2017 23:14:11 GMT+0800">
 	
 		    Dec 12, 2017
@@ -219,11 +220,11 @@
     </time>
     
 </div>
-                </div>
-                
-                
-                    <div class="postShorten-content" itemprop="articleBody">
-                        <h2 id="git撤销修改"><a href="#git撤销修改" class="headerlink" title="git撤销修改"></a>git撤销修改</h2><p>git revert / git checkout / git reset / git clean</p>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h2 id="git撤销修改"><a href="#git撤销修改" class="headerlink" title="git撤销修改"></a>git撤销修改</h2><p>git revert / git checkout / git reset / git clean</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="params">&lt;commit&gt;</span> <span class="meta">#所有文件回到某个历史版本</span></span><br><span class="line">git checkout <span class="params">&lt;commit&gt;</span> <span class="params">&lt;file&gt;</span> <span class="meta">#单个&lt;file&gt;文件的所有修改都会丢失，前一版本文件覆盖此文件</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert <span class="tag">&lt;<span class="name">commit</span>&gt;</span> #撤销一个历史提交，具体方法为生成一个和<span class="tag">&lt;<span class="name">commit</span>&gt;</span>提交完全相反操作的新提交</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> &lt;<span class="keyword">commit</span>&gt; #删除&lt;<span class="keyword">commit</span>&gt;之后的所有提交</span><br></pre></td></tr></table></figure>
@@ -241,177 +242,84 @@
 <p>3、git reset 回退</p>
 <p>如前</p>
 
-                        
-                            
-
-                        
-                        
-                            <p>
-                                <a href="/2017/12/12/git笔记/#post-footer" class="postShorten-excerpt_link link">
-                                    Comment and share
-                                </a>
-                            </p>
-                        
-                    </div>
-                
-            </div>
             
-        </article>
-    
-        
-        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/11/12/hexo-theme/">hexo theme</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Thu Nov 12 2015 22:56:02 GMT+0800">
-	
-		    Nov 12, 2015
-    	
-    </time>
-    
-</div>
-                </div>
                 
-                
-                    <div class="postShorten-content" itemprop="articleBody">
-                        <p>I choose theme Tranquilpeak. it is a gorgeous theme for hexo blog.<br>User documents is <a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme/blob/master/docs/user.md" target="_blank" rel="noopener">here</a>, download the latest version here, rename the folder in <em>Itranquilpeak</em> and place it in themes folder of your hexo blog path, modify the theme in _config.yml file by change theme variable to tranquilpeak</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">## Themes: http://hexo.io/themes/</span><br><span class="line">theme: tranquilpeak</span><br></pre></td></tr></table></figure>
-<p><img src="https://camo.githubusercontent.com/3f808a7a287f032817226fa99939d761906e1944/687474703a2f2f6431753962697761786a6e6777672e636c6f756466726f6e742e6e65742f73686f7763617365732f73686f77636173652d76312e342e6a7067" alt="cover"><br>refer to <a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo themes</a><br><img src="http://res.cloudinary.com/zhuly09/image/upload/v1446726661/logo_bfs9ul.png" alt="logo"></p>
 
-                        
-                            
-
-                        
-                        
-                            <p>
-                                <a href="/2015/11/12/hexo-theme/#post-footer" class="postShorten-excerpt_link link">
-                                    Comment and share
-                                </a>
-                            </p>
-                        
-                    </div>
-                
-            </div>
             
-        </article>
-    
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/11/04/hexo/">hexo</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Nov 04 2015 01:56:06 GMT+0800">
-	
-		    Nov 04, 2015
-    	
-    </time>
-    
-</div>
-                </div>
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-                
-                    <div class="postShorten-content" itemprop="articleBody">
-                        <h2 id="Installing-Hexo-on-Mac"><a href="#Installing-Hexo-on-Mac" class="headerlink" title="Installing Hexo on Mac"></a>Installing Hexo on Mac</h2><h3 id="1-prerequirements"><a href="#1-prerequirements" class="headerlink" title="1. prerequirements:"></a>1. prerequirements:</h3><ul>
-<li>Node.js</li>
-<li>Git</li>
-</ul>
-<h3 id="2-install-Node-js"><a href="#2-install-Node-js" class="headerlink" title="2. install Node.js"></a>2. install Node.js</h3><p>The best way to install Node.js is installing with brew. </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install node</span><br></pre></td></tr></table></figure>
-<p>install hexo</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>create a blog</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br></pre></td></tr></table></figure>
-<p>configure</p>
-<p>Modify _config.yml file which should be in the <folder> created by <em>hex init</em> command.</folder></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: [Blog title]</span><br><span class="line">subtitle:</span><br><span class="line">description:</span><br><span class="line">author: [your name]</span><br><span class="line">language: en</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure>
-<p>refer to <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="noopener">hexo configuration</a></p>
-<p>start<br>start hexo server by running the following command</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>Starts a local server. By default, this is at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
-<p><img src="http://res.cloudinary.com/zhuly09/image/upload/v1446726661/logo_bfs9ul.png" alt="logo"></p>
+    <a class="tag tag--primary tag--small t-link" href="/tags/git/">git</a>
 
-                        
-                            
-
-                        
-                        
-                            <p>
-                                <a href="/2015/11/04/hexo/#post-footer" class="postShorten-excerpt_link link">
-                                    Comment and share
-                                </a>
-                            </p>
-                        
-                    </div>
-                
             </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/12/hexo-theme/" data-tooltip="hexo theme">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/12/git笔记/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/12/git笔记/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/12/12/git笔记/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
             
-        </article>
-    
-        
-        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/11/04/install_python/">mac下的python安装</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Nov 04 2015 01:56:06 GMT+0800">
-	
-		    Nov 04, 2015
-    	
-    </time>
-    
-</div>
-                </div>
-                
-                
-                    <div class="postShorten-content" itemprop="articleBody">
-                        <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>python</span><br></pre></td></tr></table></figure>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> virtualenv</span><br></pre></td></tr></table></figure>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> virtualenvwrapper</span><br></pre></td></tr></table></figure>
-<p>oh my zsh<br>add following to $HOME/.zshrc</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">WORKON_HOME</span>=<span class="variable">$HOME</span>/.virtualenvs</span><br><span class="line"><span class="comment"># ensure all new environments are isolated from the site-packages directory</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">VIRTUALENVWRAPPER_VIRTUALENV_ARGS</span>=<span class="string">'--no-site-packages'</span></span><br><span class="line"><span class="comment"># use the same directory for virtualenvs as virtualenvwrapper</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PIP_VIRTUALENV_BASE</span>=<span class="variable">$WORKON_HOME</span></span><br><span class="line"><span class="comment"># makes pip detect an active virtualenv and install to it</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PIP_RESPECT_VIRTUALENV</span>=<span class="literal">true</span></span><br><span class="line"><span class="keyword">if</span> [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then</span><br><span class="line">    source /usr/local/bin/virtualenvwrapper.sh</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    echo <span class="string">"WARNING: Can't find virtualenvwrapper.sh"</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>usage:<br>mkvirtualenv</p>
-<p>deactivate</p>
-
-                        
-                            
-
-                        
-                        
-                            <p>
-                                <a href="/2015/11/04/install_python/#post-footer" class="postShorten-excerpt_link link">
-                                    Comment and share
-                                </a>
-                            </p>
-                        
-                    </div>
-                
-            </div>
+                <a class="post-action-btn btn btn--default" href="#">
             
-        </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
-        
-        
-        <li class="pagination-number">page 1 of 1</li>
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+    </div>
+</article>
 
 
 
@@ -422,6 +330,89 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/12/hexo-theme/" data-tooltip="hexo theme">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/12/git笔记/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/12/git笔记/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/12/12/git笔记/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/12/git笔记/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/12/git笔记/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/12/12/git笔记/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
             
         </div>
         <!-- Define author's picture -->
